@@ -1,0 +1,48 @@
+Want to play around with color on the console? Here's how...
+
+Start Visual Studio
+> Tools > NuGet Package Manager > Package Manager Console
+(this opens a console at the bottom of your window, with a prompt)
+type-> install-package cppconlib
+(now you can #include "conmanip.h" and have access to the API tools)
+
+More info on cppconlib
+http://mariusbancila.ro/blog/2013/08/25/cppconlib-a-cpp-library-for-working-with-the-windows-console/
+https://cppconlib.codeplex.com/documentation
+
+NuGet how-to
+https://docs.microsoft.com/en-us/nuget/tools/package-manager-console
+
+Test Project for ANSI color
+1) install cppconlib (see above)
+2) create a new C++ console project
+3) paste the following, build, and run (it gives me a couple of warnings, but still runs)
+
+---
+#include "conmanip.h"
+#include <iostream>
+using namespace conmanip;
+using namespace std;
+
+int main()
+{
+
+	console_out_context ctxout(console_cleanup_options::restore_all);
+	console_out conout(ctxout);
+
+	conout.settitle("cppconlib");
+	conout.setbgcolor(console_bg_colors::white);
+	conout.settextcolor(console_text_colors::red);
+
+	conout.setpos(10, 10);
+	std::cout << "colored text";
+
+	conout.resetcolors();
+
+	conout.setpos(10, 11);
+	std::cout << "not colored text";
+
+	cin.get();
+
+	return 0;
+}
