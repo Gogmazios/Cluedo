@@ -1,0 +1,70 @@
+SUSPECTS = {S1, S2, S3, S4, S5}
+WEAPONS = {W1, W2, W3, W4, W5}
+LOCATIONS = {L1, L2, L3, L4, L5}
+
+RANDOMLY CHOSEN SOLUTION: S1, W1, L1 (suspect1, weapon1, location1)
+
+REMAINING CARDS ARE RANDOMLY DISTRIBUTED AMONG PLAYER AND AIs:
+Player:	(S2, W3, W4)
+AIanne:	(S3, S4, L2)
+AImatt:	(L4, L5, S5)
+AIrose:	(L3, W2, W5)
+---------------------------
+
+Player's Turn (knows it's not S2, W3, or W4)
+	guesses S3, W5, L1
+	AIanne reveals (to player only) S3
+	AIrose reveals (to player only) W5
+	Player now KNOWS that SUSPECT is NOT S2 or S3 (must be S1, S4, S5)
+	Player now KNOWS that WEAPON is NOT W3, W4, or W5 (must be W1, W2)
+	Player now KNOWS that LOCATION is L1 (nobody else knows this though)
+	So... possible combinations ((S1, S4, S5), (W1, W2), (L1))
+
+AIanne's Turn (knows it's not S3, S4, or L2)
+	guesses S2, W2, L5
+	Player reveals (to AIanne only) S2
+	AIrose reveals (to AIanne only) W2
+	AImatt reveals (to AIanne only) L5
+	AIanne now KNOWS that SUSPECT is NOT S2, S3, S4 (must be S1, S5)
+	AIanne now KNOWS that WEAPON is NOT W2 (must be W1, W3, W4, W5)
+	AIanne now KNOWS that LOCATION is NOT L2, L5 (must be L1, L3, L4)
+	So... possible combinations ((S1, S5), (W1, W3, W4, W5), (L1, L3, L4))
+	SMART PLAYER/AI sees ALL THREE being negated, so knows that S2, W2, L5 won't work
+	[player possible combinations ((S1, S4, S5), (W1), (L1))]
+
+AImatt's Turn (knows it's not L4, L5, S5, S2, W2)
+	guesses S3, W1, L3
+	AIanne reveals (to AImatt only) S3
+	AIrose reveals (to AImatt only) L3
+	AImatt now KNOWS that SUSPECT is NOT S2, S3, S5 (must be S1, S4)
+	AImatt now KNOWS that WEAPON MUST BE W1
+	AImatt now KNOWS that LOCATION is NOT L3, L4, L5 (must be L1, L2)
+	So... possible combinations ((S1, S4), (W1), (L1, L2))
+
+AIrose's Turn (knows it's not L3, W2, W5, S2, L5)
+	guesses S5, W3, L4
+	Aimatt reveals (to AIrose only) S5 AND L4
+	Player reveals (to AIrose only) W3
+	AIrose now KNOWS that SUSPECT is NOT S2, S5 (must be S1, S3, S4)
+	AIrose now KNOWS that WEAPON is NOT W2, W3 (must be W1, W4, W5)
+	AIrose now KNOWS that LOCATION is NOT L3, L4, L5 (must be L1, L2)
+	So... possible combinations ((S1, S3, S4), (W1, W4, W5), (L1, L2))
+	Player and AIanne don't know that AImatt showed TWO CARDS to AIrose! How exciting...
+
+ROUND TWO POSSIBLE COMBINATIONS
+Player => ((S1, S4, S5), (W1), (L1))
+AIanne => ((S1, S5), (W1, W3, W4, W5), (L1, L3, L4))
+AImatt => ((S1, S4), (W1), (L1, L2))
+AIrose => ((S1, S3, S4), (W1, W4, W5), (L1, L2))
+Player and AImatt could reasonably guess the solution in the second round.
+
+NOTES:
++ Turn order should be randomized before the game.
++ Games will be quick. Yay.
++ AIs must have unique names, not names of suspects (which would be confusing).
++ AIs could either be all smart or have a range of AI intelligence (would only be worthwhile
+if funny dialog, e.g., AIs interacting with each other, otherwise just stick to all smart AIs).
++ AIs could all be smart and only differentiated through dialog styles (easy AND fun). They could
+even be based on famous AIs/robots (easy AND fun AND potentially a huge time waster; yay).
++ The entire game could be based on a theme, with suspects, weapons, and locations all
+belonging to some franchise or SCCC or whatever.

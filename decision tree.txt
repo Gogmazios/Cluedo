@@ -1,0 +1,20 @@
+* initialize game
+--random turn order generated
+--random solution chosen (Suspect, Weapon, Location)
+--remaining S,W,L distributed evenly between player and AIs
+--intro text
+--get player's name
+
+* start game
+
+PLAYER/AI TURN
+--List cards in hand (player only)
+--Forfeit game (player only)
+	==> GAME OVER
+--Make accusation (player manually; AI from list of potential solutions)
+	if correct
+		==> GAME OVER
+	if incorrect
+		==> Everyone (player & AIs) reveals ALL cards they hold that match accusation (S,W, and/or L)
+		==> All AIs have their list of potential solutions updated
+		==> Next turn
