@@ -6,6 +6,8 @@ Start Visual Studio
 type-> install-package cppconlib
 (now you can #include "conmanip.h" and have access to the API tools)
 
+You can also open a project, right click on Resources, choose Manage NuGet Packages, search for 'cppconlib' and install it from there.
+
 More info on cppconlib
 http://mariusbancila.ro/blog/2013/08/25/cppconlib-a-cpp-library-for-working-with-the-windows-console/
 https://cppconlib.codeplex.com/documentation
@@ -14,8 +16,8 @@ NuGet how-to
 https://docs.microsoft.com/en-us/nuget/tools/package-manager-console
 
 Test Project for ANSI color
-1) install cppconlib (see above)
-2) create a new C++ console project
+1) create a new C++ console project
+2) install cppconlib (see above)
 3) paste the following, build, and run (it gives me a couple of warnings, but still runs)
 
 ---
