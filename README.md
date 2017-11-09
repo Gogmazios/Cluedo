@@ -1,2 +1,2 @@
 # Cluedo
-Team Awesome's final project for Data Structures. In progress.
+Team Awesome's final project for Data Structures.
